@@ -3,16 +3,10 @@
     <h1>Jackpot</h1>
     <div :key="finalRolls.length" class="game_block">
       <roll-box
-        :roll="finalRolls[0]"
+        v-for="(s, index) in slot"
+        :key="index"
+        :roll="finalRolls[index]"
         :is-rolling="isRolling"
-      />
-      <roll-box
-          :roll="finalRolls[1]"
-          :is-rolling="isRolling"
-      />
-      <roll-box
-          :roll="finalRolls[2]"
-          :is-rolling="isRolling"
       />
     </div>
     <button class="btn" :disabled="isRolling || credit <= 0" @click="handleRoll">Roll</button>
